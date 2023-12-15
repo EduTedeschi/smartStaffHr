@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Apply Inherit -->
+<template id="apply_inherit" inherit_id="website_hr_recruitment.apply" active="True" name="State and Skills">
+    <xpath expr="//form[@id='hr_recruitment_form']/div[hasclass('s_website_form_rows')]/div[1]" position="after">
+        <div class="col-12 mb-0 py-2 s_website_form_field s_website_form_required s_website_form_model_required"
+            data-type="char" data-name="Field">
+            <div class="row s_col_no_resize s_col_no_bgcolor">
+                <label class="col-4 col-sm-auto s_website_form_label" style="width: 200px" for="state_id">
+                    <span class="s_website_form_label_content">State</span>
+                    <span class="s_website_form_mark"> *</span>
+                </label>
+                <select id="state_id" name="state_id" t-attf-class="form-select col-sm form-control s_website_form_input">                                                     
+
+                    <option value="">State / Province...</option>
+                    <t t-foreach="states" t-as="s">
+                        <option t-att-value="s.id" t-att-selected="s.id == (state_id and state_id.id or -1)">
+                            <t t-esc="s.name" />
+                        </option>
+                    </t>
+                </select>
+            </div>
+            <!-- <div t-attf-class="#{error.get('country_id') and 'o_has_error'} div_country col-lg-6 mb-2">
+                <label class="col-form-label" for="country_id">Country</label>
+                <select id="country_id" name="country_id" t-attf-class="form-select #{error.get('country_id') and 'is-invalid' or ''}" t-att-mode="mode[1]">
+                    <option value="">Country...</option>
+                    <t t-foreach="countries" t-as="c">
+                        <option t-att-value="c.id" t-att-selected="c.id == (country and country.id or -1)">
+                            <t t-esc="c.name" />
+                        </option>
+                    </t>
+                </select>
+            </div>
+
+            <div t-attf-class="#{error.get('state_id') and 'o_has_error'} div_state col-lg-6 mb-2" t-att-style="(not country or not country.state_ids) and 'display: none'">
+                <label class="col-form-label" for="state_id">State / Province</label>
+                <select name="state_id" t-attf-class="form-select #{error.get('state_id') and 'is-invalid' or ''}" data-init="1">
+                    <option value="">State / Province...</option>
+                    <t t-foreach="country_states" t-as="s">
+                        <option t-att-value="s.id" t-att-selected="s.id == ('state_id' in checkout and country and checkout['state_id'] != '' and int(checkout['state_id']))">
+                            <t t-esc="s.name" />
+                        </option>
+                    </t>
+                </select>
+            </div> -->
+        </div>
+    </xpath>
+
+    <xpath expr="//form[@id='hr_recruitment_form']/div[hasclass('s_website_form_rows')]/div[2]" position="after">
+        <div class="form-group s_website_form_field col-12    " data-type="one2many" data-name="Field">
+            <div class="row s_col_no_resize s_col_no_bgcolor">
+            <label class=" col-sm-auto s_website_form_label " style="width: 200px" for="oudhta8kfn6">
+                <span class="s_website_form_label_content">Idiomas</span>
+            </label>
+            <div class="col-sm">
+                <div class="row s_col_no_resize s_col_no_bgcolor s_website_form_multiple" data-name="skill_ids" data-display="horizontal">
+                <div class="checkbox col-12 col-lg-4 col-md-6">
+                    <div class="form-check">
+                    <input type="checkbox" class="s_website_form_input form-check-input" id="oudhta8kfn60" name="skill_ids" value="1"/>
+                    <label class="form-check-label s_website_form_check_label" for="oudhta8kfn60">
+                        Protugues
+                    </label>
+                    </div>
+                </div>
+                <div class="checkbox col-12 col-lg-4 col-md-6">
+                    <div class="form-check">
+                    <input type="checkbox" class="s_website_form_input form-check-input" id="oudhta8kfn61" name="skill_ids" value="3"/>
+                    <label class="form-check-label s_website_form_check_label" for="oudhta8kfn61">
+                        Ingles
+                    </label>
+                    </div>
+                </div>
+                <div class="checkbox col-12 col-lg-4 col-md-6">
+                    <div class="form-check">
+                    <input type="checkbox" class="s_website_form_input form-check-input" id="oudhta8kfn62" name="skill_ids" value="4"/>
+                    <label class="form-check-label s_website_form_check_label" for="oudhta8kfn62">
+                        Espanhol
+                    </label>
+                    </div>
+                </div>
+                <div class="checkbox col-12 col-lg-4 col-md-6">
+                    <div class="form-check">
+                    <input type="checkbox" class="s_website_form_input form-check-input" id="oudhta8kfn63" name="skill_ids" value="5"/>
+                    <label class="form-check-label s_website_form_check_label" for="oudhta8kfn63">
+                        Aleman
+                    </label>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </xpath>
+</template>
+
+</odoo>
